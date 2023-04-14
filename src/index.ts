@@ -11,7 +11,7 @@ function setColor(): void {
   bgcolor.set('root');
 }
 
-btn.addEventListener('click', () => {
+btn.addEventListener('click', (): void => {
   setColor();
 });
 

@@ -1,5 +1,4 @@
 interface Color {
-  color: string | number[];
   code: string | number[];
 }
 
