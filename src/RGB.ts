@@ -1,14 +1,12 @@
-type RGBCode = [number, number, number];
-
 export class RGB {
-  colorCode: RGBCode;
+  color: number[] = [];
   constructor() {
-    this.colorCode = [this.random(), this.random(), this.random()];
+    this.color = [this.random(), this.random(), this.random()];
   }
   random(): number {
     return Math.floor(Math.random() * 255);
   }
-  get code(): RGBCode {
-    return this.colorCode;
+  get code(): number[] {
+    return this.color;
   }
 }

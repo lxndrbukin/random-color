@@ -1,10 +1,21 @@
-export class BackgroundColor<T> {
-  constructor(public color: T) { }
+interface Color {
+  color: string | number[];
+  code: string | number[];
+}
+
+export class BackgroundColor {
+  constructor(public color: Color) { }
   set(divId: string): void {
     const root: HTMLElement = document.getElementById(divId)!;
-    if (this.color instanceof Array) {
-      const rgb = this.color.join(', ');
+    const { code } = this.color;
+    if (code instanceof Array) {
+      console.log(code);
+      const rgb = code.join(', ');
       root.style.backgroundColor = `rgb(${rgb})`;
+    }
+    if (typeof code === 'string') {
+      console.log(code);
+      root.style.backgroundColor = `#${code}`;
     }
   }
 }

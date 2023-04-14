@@ -1,20 +1,17 @@
-type HexCode = [string, string, string, string, string, string];
-
 export class Hex {
-  colorCode: HexCode = ['a', 'a', 'a', 'a', 'a', 'a'];
-  letters: string = 'abcdef';
-  numbers: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  color: string;
+  chars: string = 'abcdef0123456789';
   constructor() {
-    // this.colorCode = [];
+    this.color = this.randomHex();
   }
-  randomLetter(): string {
-    const { length } = this.letters;
-    const { letters } = this;
-    return letters[Math.floor(Math.random() * length)];
+  randomHex(): string {
+    const hex: string[] = [];
+    for (let i = 0; i < 6; i++) {
+      hex.push(this.chars[Math.floor(Math.random() * this.chars.length)]);
+    }
+    return hex.join('');
   }
-  randomNumber(): number {
-    const { length } = this.numbers;
-    const { numbers } = this;
-    return numbers[Math.floor(Math.random() * length)];
+  get code(): string {
+    return this.color;
   }
 }

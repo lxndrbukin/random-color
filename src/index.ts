@@ -2,9 +2,17 @@ import { BackgroundColor } from './BackgroundColor';
 import { RGB } from './RGB';
 import { Hex } from './Hex';
 
-const rgb = new RGB();
-const hex = new Hex();
-hex.randomLetter();
-const bgcolor = new BackgroundColor(rgb.code);
+const btn = document.getElementById('btn')!;
 
-bgcolor.set('root');
+function setColor(): void {
+  const rgb = new RGB();
+  // const hex = new Hex();
+  const bgcolor = new BackgroundColor(rgb);
+  bgcolor.set('root');
+}
+
+btn.addEventListener('click', () => {
+  setColor();
+});
+
+setColor();
